@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+  <meta charset="utf-8">
+  <title>HA140172</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Social media licrary -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Exo+2:400,700&subset=cyrillic');
+html {
+	height: 100%;
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+body {
+	height: 100%;
+	background: #f1f4f4;
+  font-family: 'Exo 2', sans-serif;
+  line-height: 1.5;
+  overflow: overlay;
+}
+strong {
+	font-style: italic;
+	font-weight: bold;
+	color: #80a9b7;
+}
+
+
+/* ------- custom my scroll -------*/  
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+ 
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #6e6f80; 
+    border-radius: 0px
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8c9091; 
+  }
+
+/* ----- Footer ----- */
+  .footer {
+    margin: 0;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    color: darkgrey;
+    background-color: #2c2c2c;
+    text-align: center;
+  }
+  .text {
+    padding-top: 20px;
+    font-size: 25px;
+  }
+  form.Subscribe {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  form.Subscribe input{
+    padding: 10px 20px;
+    font-family: Hind;
+    font-size: 16px;
+    border: 0;
+    background-color: #b6cdb5;
+    color: #121c23;
+    width: 500px;
+  }
+  ::placeholder {
+    color: #121c23;
+    opacity: .6;
+  }
+  .footer .info {
+    width: 50%;
+    padding-top: 80px;
+    padding-left: 80px;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .footer .contact {
+    width: 50%;
+  }
+  .grid {
+    margin: 0 8.33%;
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-gap: 10px;   
+    padding: 10px;
+  }
+  .grid > div {
+    margin-top: auto;
+    text-align: left;
+    padding: 20px 0;
+    font-size: 14px;
+  }
+/* ----- Social media button -----*/
+  .fa {
+    padding: 13px 0;
+    font-size: 24px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 4px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0);
+  }
+  .fa:hover {
+    border-radius: 50%;
+    /*opacity: 0.7;*/
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+  }
+  .fa-facebook {
+  	background: transparent;
+    color: white;
+  }
+  .fa-facebook:hover {
+    background: #3B5998;
+  }
+  .fa-twitter {
+  	background: transparent;
+   /* background: #f94125;*/
+    color: white;
+  }
+  .fa-twitter:hover {
+    background: #55ACEE;
+  }
+  .fa-behance {
+  	background: transparent;
+    /*background: #f94125;*/
+    color: white;
+  }
+  .fa-behance:hover {
+    background: #0056ff;
+  }
+  .fa-instagram {
+  	background-image: url("image/bg-grey.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;    
+    color: white;
+  }
+  .fa-instagram:hover {    
+    background-image: url("image/bg.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;    
+  }
+
+/* ----- back to top button style-------- */
+	.scrollToTopBtn {
+	  background-color: white;
+	  padding: 10px 10px;
+	  margin: 10px;
+	  border: 2px solid #caeaf5;
+	  border-radius: 50%;
+	  color: white;
+	  cursor: pointer;
+	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0);
+	  
+	  /* place it at the bottom right corner */
+	  position: fixed;
+	  bottom: 30px;
+	  right: 30px;
+	  /* keep it at the top of everything else */
+	  z-index: 100;
+	  /* hide with opacity */
+	  opacity: 0;
+	  /* also add a translate effect */
+	  transform: translateY(100px);
+	  /* and a transition */
+	  transition: all .5s ease
+	}
+
+	.scrollToTopBtn:hover {
+	  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+	}
+	.showBtn {
+	  opacity: 1;
+	  transform: translateY(0)
+	}
+
+/* ----- Landing ----- */
+	#landing {
+		z-index: 150;
+		position: relative;
+		padding-bottom: 80px;
+	}
+	.head {
+	text-align: center;	
+		color: white;
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 70px;
+		font-weight: bold;
+	}
+	.info{
+		color: #cad7dc;
+		font-size: 16px;
+		font-weight: normal;
+		line-height: 1.5;
+	}
+
+/* ----- Timeline ----- */
+	.timeline__section {
+		padding: 20px 0 80px;
+	}
+  .wrapper {
+    margin: 0 auto;
+    padding: 0 8.33% 50px ;
+    width: 100%;
+  }
+  article {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .timeline__nav {
+  	text-align: left;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    right: 8.33%;
+    transition: top 0.3s ease-out;
+  }
+  .timeline__nav ul {
+    list-style: none;
+    list-style-position: inside;
+    margin: 100px 0;
+  }
+  .timeline__nav ul li {
+    margin: 15px 0;
+    padding-left: 0;
+    list-style-type: none;
+    color: #bfc1c3;
+    /*border-bottom: 1px dotted rgba(0, 0, 0, 0.3);*/
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+  }
+  .timeline__nav ul li.active {
+    font-weight: bold;
+    color: #f94125;
+    /*border-bottom: 1px dotted transparent;*/
+    transform: scale(1.2);
+  }
+  .timeline__nav ul li:hover {
+    color: #6a6ca3;
+  }
+
+  /* ----- content ----- */
+	.milestone {		
+	  padding-bottom: 100px;
+	  padding-right: 80px;
+	}
+	.milestone:after {
+		content: "";
+    display: table;
+    clear: both;
+	}
+	.row {
+		padding-left: 20px;
+	}
+	.col-left {		
+		margin-top: auto;
+		width: 25%;		
+		float: left;
+	}
+	.col-right {
+    margin-top: auto;
+		width: 75%;
+		/*padding-left: 40px;*/
+		float: left;
+	}
+
+  .img-text {
+  display: grid;
+  grid-template-columns: 25% 75% ;
+  grid-gap: 20px;
+  }
+  .img-text > div {
+    text-align: left;
+    padding: 0;
+    font-size: 16px;
+    color: #16184a;
+  }
+  .img-text p {
+    padding-bottom: 20px;
+  }
+  .item1 {
+    grid-row-end: span 2;
+  }
+  .item3 {
+    margin-top: auto;
+  }
+
+  .text-img {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-gap: 20px;
+  }
+  .text-img > div {
+    text-align: left;
+    padding: 0;
+    font-size: 16px;
+    color: #16184a;
+  }
+  .text-img p {
+    padding-bottom: 20px;
+  }
+  .detail1 {
+    grid-area: 1 / 2 / span 2 / span 1;
+  }
+  .detail3 {
+    margin-top: auto;
+  }
+	.milestone h2{
+		font-weight: bold;
+		padding-bottom: 20px;
+		color: #6a6ca3;
+	}
+	.milestone h3 {
+		color: #f94125;
+    line-height: 1.5;
+		font-size: 24px;
+	}
+	.milestone p {
+		margin: auto;
+		/*padding: 0 8.33%;*/
+		color: #16184a;
+	}
+  
+/* ----- button ----- */
+  .btnsolid{
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Exo 2';
+    border: 0;
+    padding: 10px 30px;
+    background-color: #6a6ca3;
+    color: white;
+    transition: all .3s ease-in-out;
+    display: inline;
+    width: 250px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0);
+  }
+  .btnsolid:hover {
+    background-color: #58597c;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
+  }
+  .btnsolid:active {
+  	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0);
+  	outline: none;
+  }
+  .btnsolid:visited {
+  	outline: none;
+  }
+  .btnsolid:link {
+  	outline: none;
+  }
+</style>
+</head>
+
+<body>
+<!-- Landing -->
+	<section>
+		<div clas id="landing">
+			<img src="image/banner1.jpg" style="width:100%">
+			<div class="head">
+				Course Portfolio<br>
+				<div class="info">
+					<br>
+					<b>NGUYEN BICH HUONG<br></b>
+					<b>Student ID:</b> HA140172<br>
+					<b>Batch:</b> GD1405<br>
+					<b>Subject:</b> WDT401 - Web design 2<br>
+					<b>Lecturer:</b> Shruthi Thaiveppil Gopi<br>
+				</div>
+			</div>	
+		</div>	
+	</section>
+	<script>
+		$(document).ready(function(){
+	    $(window).scroll(function(){
+	        $("#landing").css("opacity", 1 - $(window).scrollTop() / ($('landing').height() / 2));
+	    });
+	});
+	</script>
+
+<article class="timeline">
+  <nav class="timeline__nav">
+    <ul>
+    	<li><span>Intro</span></li>
+    	<li><span>Special thank</span></li>
+      <li><span>Fist Step</span></li>
+      <li><span>Assignment 1</span></li>
+      <li><span>Assignment 2</span></li>
+      <li><span>Assignment 3</span></li>
+    </ul>
+  </nav>
+
+<!-- Intro -->
+  <section class="timeline__section">
+    <div class="wrapper">
+    	<div class="milestone">
+    		<h2>Intro</h2>
+    		<div class="row">
+    			<div class=" col-right" style="padding-right:20px">
+    			<p>
+    				My name is Huong. I'm studying Graphic Design at FPT University.<br><br>
+    				Here is my Course Portfolio for Web Design 2 (WDT401).<br><br>
+						Coding is always one of my interest since Secondary School. I had learn Pascal before so it is kinda easy to catch up with HTML code. For me, Web Design 2 is really fun to study.
+    			</p>
+	    		</div>  
+	    		<div class="col-left">
+	    			<img src="image/profile.jpg" style="width: 100%">
+	    		</div>
+    		</div>    		
+    	</div>
+
+    	<div class="milestone">
+    		<h2>Special thank</h2>
+    		<p>
+    			I would like to say "Thank you" to my teacher <strong>-Mrs. Shruthi</strong> . She had taught me many many new things so that I can understand and code a whole website by myself. <br><br>
+    			<strong style="font-size: 20px">Thank you teacher :3</strong>
+    		</p>
+
+    	</div>      
+
+<!-- FIRST DAY -->
+      <div class="milestone">
+      	<div class="img-text">
+          <div class="item1">
+      			<img src="image/01.jpg" style="width: 100%">      			
+      		</div>
+      		<div class="item2">            
+            <h2>First Step</h2>
+            <h3>Day 1 - Basic HTML tags</h3>
+          </div>
+          <div class="item3">  
+      			<p>
+      				This is the first step into the HTML land. <br>The result is very simple. I learn how to change font, size, color, background and insert image.
+      			</p>
+      			<a href="https://fsora666.github.io/veryfirstweb.github.io/" target="_blank" rel="noopener noreferrer">
+      				<button class="btnsolid" style="width:100%">Check this out</button>
+            </a>
+      		</div>
+      	</div>      	      	
+      </div>
+
+<!-- ASSIGN 1 -->
+      <div class="milestone">
+      	<div class="text-img">
+          <div class="detail2">
+      			<h2>Assignment 1</h2>
+      			<h3>
+              Day 2 - Bootstrap 4 basics<br>
+              Day 3 - Detailing & Styling
+            </h3>
+          </div>
+          <div class="detail3">
+      			<p>
+      				In this assigment, I have to made a websign based on my design in previous course (Web design 1). I learn how to use Bootstrap 4 to make Navbar and Carousel. It's very fun when it comes to styling my website. Even though there are still some trouble, I'm very happy to finish to see the final result.
+      			</p>
+      			<a href="https://fsora666.github.io/hoahoavn.github.io/" target="_blank" rel="noopener noreferrer">
+      				<button class="btnsolid" style="width:100%">Check this out</button>
+      			</a>
+      		</div>
+      		<div class="detail1">
+      			<img src="image/02.jpg" style="width: 100%">      			
+      		</div>
+      	</div>
+      </div>
+
+<!-- ASSIGN 2 -->
+      <div class="milestone">
+        <div class="img-text">
+          <div class="item1">
+            <img src="image/03.jpg" style="width: 100%">
+          </div>
+          <div class="item2">            
+            <h2>Assignment 2</h2>
+            <h3>Day 4 to 6 - Create a live website - Spa</h3>
+          </div>
+          <div class="item3">  
+            <p>
+              This is when I learn how to publish my website. I need to aplly all my knowledge I had learn to create a brand new website. After that, I upload it to github so that I can share it to my friends or other people.
+            </p>
+            <a href="https://fsora666.github.io/spademo.github.io/" target="_blank" rel="noopener noreferrer">
+              <button class="btnsolid" style="width:100%">Check this out</button>
+            </a>
+          </div>
+        </div>                
+      </div>
+
+<!-- ASSIGN 3 -->
+      <div class="milestone">
+        <div class="text-img">
+          <div class="detail2">
+            <h2>Assignment 3</h2>
+            <h3>
+              Day 7 to 10 - Course portfolio
+            </h3>
+          </div>
+          <div class="detail3">
+            <p>
+              This is the end of this course. Now I can make my own website for this course. After all of the problems, fixing error, try new styles, this is absolutely incredible that I had done all of the hard works and the result turned out very good.
+            </p>
+            <a href="https://fsora666.github.io/courseportfolio.github.io/" target="_blank" rel="noopener noreferrer">
+              <button class="btnsolid" style="width:100%">Check this out</button>
+            </a>
+          </div>
+          <div class="detail1">
+            <img src="image/04.jpg" style="width: 100%">
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+</article>
+
+<script type="text/javascript">
+  $(() => {
+    let stickyTop = 100,
+      scrollTarget = false
+    
+    let timeline = $('.timeline__nav'),
+      items = $('li', timeline),
+      milestones = $('.timeline__section .milestone'),
+      offsetTop = parseInt(timeline.css('top'))
+
+    const TIMELINE_VALUES = {
+      start: 190,
+      step: 40
+    }
+
+    $(window).resize(function () {
+      timeline.removeClass('fixed')
+
+      stickyTop = timeline.offset().top - offsetTop
+
+      $(window).trigger('scroll')
+    }).trigger('resize')
+
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > stickyTop) {
+        timeline.addClass('fixed')
+      } else {
+        timeline.removeClass('fixed')
+      }
+    }).trigger('scroll')
+
+    items.find('span').click(function () {
+      let li = $(this).parent(),
+        index = li.index(),
+        milestone = milestones.eq(index)
+
+      if (! li.hasClass('active') && milestone.length) {
+        scrollTarget = index
+
+        let scrollTargetTop = milestone.offset().top - 80
+
+        $('html, body').animate({ scrollTop: scrollTargetTop }, {
+          duration: 400,
+          complete: function complete() {
+            scrollTarget = false
+          }
+        })
+      }
+    })
+
+    $(window).scroll(function () {
+      let viewLine = $(window).scrollTop() + $(window).height() / 3,
+        active = -1
+
+      if (scrollTarget === false) {
+        milestones.each(function () {
+          if ($(this).offset().top - viewLine > 0) {
+            return false
+          }
+          
+          active++
+        })
+      } else {
+        active = scrollTarget
+      }
+
+      timeline.css('top', -1 * active * TIMELINE_VALUES.step + TIMELINE_VALUES.start + 'px')
+
+      items.filter('.active').removeClass('active')
+      
+      items.eq(active != -1 ? active : 0).addClass('active')
+    }).trigger('scroll')
+  })
+</script>
+
+<!-- FOOTER -->
+  <div class="footer">
+    <div class="grid">
+      <div class="info1">          
+        <p><b>NGUYEN BICH HUONG<br></b></p>
+        <b>Student ID:</b> HA140172<br>
+        <b>Batch:</b> GD1405<br>
+        <b>Subject:</b> WDT401 - Web design 2<br>
+        <b>Lecturer:</b> Shruthi Thaiveppil Gopi<br>
+      </div>
+      <div class="info2">
+          <p><b>Contact me:<br></b></p>
+          <b>Phone:</b> 0966732807<br>
+          <b>Mail:</b> huongnb18032000@gmail.com        
+      </div>
+      <div class="info3">
+        <p><b>Follow me:</b></p>
+        <div class="socialbtn">
+          <a href="https://www.facebook.com/" class="fa fa-facebook" target="_blank" rel="noopener noreferrer"></a>
+          <a href="https://www.instagram.com/" class="fa fa-instagram" target="_blank" rel="noopener noreferrer"></a>
+          <a href="https://twitter.com/home" class="fa fa-twitter" target="_blank" rel="noopener noreferrer"></a>
+          <a href="https://www.youtube.com/" class="fa fa-behance" target="_blank" rel="noopener noreferrer"></a>      
+        </div>
+      </div>  
+    </div>
+  </div>
+
+<!---- Scroll to top button ---->	
+  <button class="scrollToTopBtn" ><img src="image/logo.png" style="width: 30px"></button>  
+  <script>
+    var target = document.querySelector(".footer");
+
+    var scrollToTopBtn = document.querySelector(".scrollToTopBtn")
+    var rootElement = document.documentElement
+
+    // Next we want to create a function that will be called when that element is intersected
+    function callback(entries, observer) {
+      // The callback will return an array of entries, even if you are only observing a single item
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Show button
+          scrollToTopBtn.classList.add("showBtn")
+        } else {
+          // Hide button
+          scrollToTopBtn.classList.remove("showBtn")
+        }
+      });
+    }
+
+    function scrollToTop() {
+      rootElement.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
+    }
+    scrollToTopBtn.addEventListener("click", scrollToTop);
+        
+    // Next we instantiate the observer with the function we created above. This takes an optional configuration
+    // object that we will use in the other examples.
+    let observer = new IntersectionObserver(callback);
+    // Finally start observing the target element
+    observer.observe(target);
+  </script>
+
+</body>
+</html>
